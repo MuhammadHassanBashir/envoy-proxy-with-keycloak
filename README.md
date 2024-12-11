@@ -38,7 +38,7 @@
     Client ID: envoy-client.
     Client Protocol: openid-connect.
     Access Type: confidential.
-    Set the Redirect URI to the Envoy's address or service.   #give envoy-proxy external-ip here or if you uses ingress, and use envoy as ingress backend service. then use ingress domain here. like in my case (: https://envoy.disearch.ai/)
+    Set the Redirect URI to the Envoy's address or service.   #give envoy-proxy external-ip here or if you uses ingress, and use envoy as ingress backend service. then use ingress domain here. like in my case (: http://envoy.disearch.ai/)
     
     step 5: Configure Credentials:
     
