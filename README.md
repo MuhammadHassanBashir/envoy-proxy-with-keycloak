@@ -41,6 +41,8 @@
     Set the Redirect URI to the Envoy's address or service.   #give envoy-proxy external-ip here or if you uses ingress, and use envoy as ingress backend service. then use ingress domain here. like in my case (: http://envoy.disearch.ai/*)
     
     step 5: Configure Credentials:
+
+    Navigate to the client > setting  and change **Access type** from **Public to Confidentail**.  and save it. It will open a new tab **Credential** adjust to the **Settings** under client.
     
     Navigate to the Credentials tab of the client.
     Note down the Client ID and Secret for later use.
