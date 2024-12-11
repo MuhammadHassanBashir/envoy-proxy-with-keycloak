@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak-development
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: keycloak-development
+    spec:
+      containers:
+        - name: keycloak-development
+          image: quay.io/keycloak/keycloak:15.0.2
+          imagePullPolicy: Always
+          env:
+            - name: KEYCLOAK_USER
+              value: "admin"
+            - name: KEYCLOAK_PASSWORD
+              value: "admin"
+            - name: PROXY_ADDRESS_FORWARDING
+              value: "true"
+        #    - name: KEYCLOAK_FRONTEND_URL
+        #      value: "http://keycloak-development-service:8080/auth/"
+            - name: DB_VENDOR
+              value: POSTGRES
+            - name: DB_ADDR
+              value: "10.50.0.6"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_DATABASE
+              value: "postgres"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "CKhEJZH[uFS;%=Mg8iwueVm&x"
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: https
+              containerPort: 8443
+          readinessProbe:
+            httpGet:
+              path: /auth/realms/master
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-development-service
+  annotations:
+    networking.gke.io/load-balancer-type: "Internal"
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: keycloak-development
