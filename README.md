@@ -44,14 +44,9 @@
 
 
 
-## command to key from keycloak
+## command to get token key from keycloak
 
-        curl -X POST "http://keycloak-development-service:8080/auth/realms/master/protocol/openid-connect/token" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -d "grant_type=password" \
-    -d "client_id=envoy" \
-    -d "username=envoy" \
-    -d "password=envoy"
+        curl -X POST "http://keycloak-development-service:8080/auth/realms/master/protocol/openid-connect/token"   -H "Content-Type: application/x-www-form-urlencoded"   -d "username=admin"   -d "password=RhNtAskong"   -d "grant_type=password"   -d "client_id=admin-cli""
 
 
     Navigate to the client > setting  and change **Access type** from **Public to Confidentail**.  and save it. It will open a new tab **Credential** adjust to the **Settings** under client.
