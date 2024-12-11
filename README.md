@@ -42,6 +42,18 @@
     
     step 5: Configure Credentials:
 
+
+
+## command to key from keycloak
+
+        curl -X POST "http://keycloak-development-service:8080/auth/realms/master/protocol/openid-connect/token" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -d "grant_type=password" \
+    -d "client_id=envoy" \
+    -d "username=envoy" \
+    -d "password=envoy"
+
+
     Navigate to the client > setting  and change **Access type** from **Public to Confidentail**.  and save it. It will open a new tab **Credential** adjust to the **Settings** under client.
     
     Navigate to the Credentials tab of the client.
