@@ -53,3 +53,11 @@
     
     Navigate to the Credentials tab of the client.
     Note down the Client ID and Secret for later use.
+
+## Command to get token using keycloak client information(working)
+    
+    curl -L --insecure -s -X POST 'http://keycloak-development-service:8080/auth/realms/demorealm/protocol/openid-connect/token' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=democlient' \
+    --data-urlencode 'grant_type=client_credentials' \
+    --data-urlencode 'client_secret=a48d18b9-6308-4e84-a585-c5dbecf9240b'
