@@ -17,32 +17,19 @@
     Username: admin
     Password: admin (or the password you configured).
     
-    Step 2: Create a New Realm
-    Once logged in, look at the top-left corner of the admin console, where you’ll see the current realm name (usually "Master" by default).
-    
-    Click the dropdown menu beside the realm name.
-    
-    Select Add realm from the dropdown.
-    
-    Step 3: Configure the New Realm
-    In the Add Realm page:
-    
-    Realm Name: Enter a name for the realm (e.g., envoy-auth-realm).
-    This name is case-sensitive and will be used in URLs.
-    Click Create.
-    
-    step 4: Create a Client in Keycloak:
-    
-    In the created realm, go to Clients and create a new client:
-    
-    Client ID: envoy-client.
-    Client Protocol: openid-connect.
-    Access Type: confidential.
-    Set the Redirect URI to the Envoy's address or service.   #give envoy-proxy external-ip here or if you uses ingress, and use envoy as ingress backend service. then use ingress domain here. like in my case (: http://envoy.disearch.ai/*)
-    
-    step 5: Configure Credentials:
+    **link: https://docs.platformatic.dev/docs/next/guides/jwt-keycloak**
 
+    follow this link for retrive token from keycloak.
 
+    After configuring keycloak by following the link detail. In the last you need to use this command for retriving the key from keycloak. it correct. command ma jo mention ha wo sahi ni ha..
+
+    curl -L --insecure -s -X POST 'http://keycloak-development-service:8080/auth/realms/demorealm/protocol/openid-connect/token' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=democlient' \
+    --data-urlencode 'grant_type=client_credentials' \
+    --data-urlencode 'client_secret=a48d18b9-6308-4e84-a585-c5dbecf9240b'
+
+     
 
 ## command to get token key from keycloak
 
