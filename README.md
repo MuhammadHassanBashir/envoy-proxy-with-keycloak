@@ -21,7 +21,7 @@
 
     follow this link for retrive token from keycloak.
 
-    After configuring keycloak by following the link detail. In the last you need to use this command for retriving the key from keycloak. it correct. command ma jo mention ha wo sahi ni ha..
+    After configuring keycloak by following the link detail. In the last you need to use this command for retriving the key from keycloak. it correct. link ma jo command ma jo mention ha wo sahi ni ha..
 
     curl -L --insecure -s -X POST 'http://keycloak-development-service:8080/auth/realms/demorealm/protocol/openid-connect/token' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
