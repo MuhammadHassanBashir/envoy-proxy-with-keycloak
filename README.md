@@ -45,9 +45,13 @@
     
     curl -L --insecure -s -X POST 'http://keycloak-development-service:8080/auth/realms/demorealm/protocol/openid-connect/token' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'client_id=democlient' \    get from key clock client session
+    --data-urlencode 'client_id=democlient' \
     --data-urlencode 'grant_type=client_credentials' \
-    --data-urlencode 'client_secret=a48d18b9-6308-4e84-a585-c5dbecf9240b'        ---> get from keycloud client credential
+    --data-urlencode 'client_secret=a48d18b9-6308-4e84-a585-c5dbecf9240b'
+
+    client_id: get client id from keycloak
+    client_secret: get client secret from keycloak
+
 
 ## Command to send request along with token
     
